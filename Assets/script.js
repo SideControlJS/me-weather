@@ -13,6 +13,21 @@ Function to fetch coordinates of a city:
         Call a function to fetch weather information usign these coordinates
         Add the city to the search history.
 
+Function to fetch weather information:
+    Make an HTTP request to the Wather Forecast API using the latitude and longitude.
+    IF the response contains data:
+        Extract the required weather details from the response.
+        Update the user interface with current and future weather condtions.
+
+Function to add a city to the search history:
+    IF the cit is not already in the history:
+        Add the city to local storage.
+        Display the city on the user interface under the search history.
+
+When a previously searched city is clicked:
+    Call the function to fetch coordinates for this city (which will fetch weather info.)
+    
+
 
 
 
