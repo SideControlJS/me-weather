@@ -1,7 +1,28 @@
 /*
 When the page is loaded: 
     Load previously searched cities from local storage and display them on the screen
+*/
 
+document.addEventListener("DOMContentLoaded", function(){
+    //load previously searched cities when the page loads
+
+    loadSearchedCities();
+
+    //event listener for search button click
+    document.querySelector("searchButton").addEventListener("click", function() {
+        const cityName = document.querySelector("#cityInput").ariaValueMax.trim();
+        if (cityName) {
+            fetchCoordinates(cityName);
+        }
+    });
+
+    //event listener for previously searched cities
+
+})
+
+
+
+/*
 When the search button is clicked:
     Get the city name from the input box.
     Call a function to fetch the coordinates for this city.
