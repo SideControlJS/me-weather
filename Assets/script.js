@@ -26,25 +26,6 @@ Function to add a city to the search history:
 
 When a previously searched city is clicked:
     Call the function to fetch coordinates for this city (which will fetch weather info.)
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 */
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me-Weather</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<main class="container mt-5">
+
+    <!-- Search Section -->
+    <section>
+        <header>
+            <h2>Search Weather</h2>
+        </header>
+        <article>
+            <div class="input-group mb-3">
+                <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
+                <div class="input-group-append">
+                    <button id="searchButton" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Weather Display Section-->
+    <section class="mt-4"></section>
+        <header>
+            <h3>Weather Details</h3>
+        </header>
+        <article id="weatherDetails">
+            <p><srong>Temperature:</srong> <span id="temperature">N/A</span>°F</p>
+        </article>
+    </section>
+
+    <!-- Search History Section-->
+    <section class="mt-4">
+        <header>
+            <h3>Search History</h3>
+        </header>
+        <nav>
+            <ul id="searchHistory" class="list-group">
+                <!--History Items will display here-->
+            </ul>
+        </nav>
+    </section>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="Assets/script.js"></script>
+    
+</body>
+</html>
