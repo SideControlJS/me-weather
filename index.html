@@ -14,10 +14,10 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <main class="container mt-5 d-flex">
+    <main class="container mt-5">
         <div class="row">
     <!-- Search Section -->
-        <aside class="mr-4">
+        <aside class="col-md-3">
             <section>
                 <header>
                     <h2>Search for a City:</h2>
@@ -47,7 +47,7 @@
 
     <!-- Weather Display Section -->
         <div class="col-md-9">
-            <section class="mt-4 text-center">
+            <section class="mt-4 text-center" id="weatherDetailsSection" style="display: none">
                 <div>
                     <h3 id="currentCityAndDate"></h3> 
                 </div>
@@ -59,7 +59,10 @@
 
             <!-- 5-Day Forecast Section -->
                 <article id="weatherCards" class="d-flex flex-wrap justify-content-center">
+                    <h4 class="text-center w-100" id="fiveDayForecastTitle" style="display: none;">5-Day Forecast</h4>
+                    <div id="forecastCardsContainer" class="d-flex flex-row flex-wrap justify-content-around">
                     <!-- 5-day forecast will be inserted here by the script -->
+                    </div>
                 </article>
             </section>
         </div>    

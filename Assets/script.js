@@ -35,6 +35,7 @@ function fetchWeatherInformation(lat, lon, city) {
         .then(data => {
             displayCurrentWeather(data.list[0], city);
             display5DayForecast(data.list.slice(1, 6));
+            document.getElementById("weatherDetailsSection").style.display = "block";
         })
         .catch(error => console.error("There was a problem with the fetch operation:", error));
 }
@@ -68,8 +69,16 @@ function displayCurrentWeather(currentWeather, city) {
 }
 
 function display5DayForecast(forecastData) {
-    const weatherCardsContainer = document.getElementById("weatherCards");
+    const weatherCardsContainer = document.getElementById("forecastCardsContainer");
+    const fiveDayForecastTitle = document.getElementById("fiveDayForecastTitle");
+
     weatherCardsContainer.innerHTML = "";
+
+    if (forecastData.length > 0) {
+        fiveDayForecastTitle.style.display = "block";
+    } else {
+        fiveDayForecastTitle.style.display = "none";
+    }
 
     forecastData.forEach(day => {
         const temperature = day.main.temp;

@@ -7,6 +7,37 @@ body {
 }
 
 .forecast-card {
+    flex: 1;
     background-color: darkblue;
     color: white;
+    margin: 5px;
+}
+
+/*#currentWeatherTable {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+}*/
+
+.weatherDetailsWrapper {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+    .forecast-card {
+        flex: none;
+        width:clac(18% - 10px);
+    }
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 767px) {
+    .forecast-card {
+        width: calc(50% - 10px);
+    }
 }
