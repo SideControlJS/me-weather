@@ -48,10 +48,15 @@ body {
 /* Media Query for smaller screens */
 @media (max-width: 767px) {
     #forecastCardsContainer {
+        max-width: calc(100% - 20px);
         flex-direction: column !important;
         align-items: center !important;
     }
-    .forecast-card {
-        width: 100% !important;
+    .weatherDetailsWrapper .forecast-card {
+        max-width: calc(100% - 20px);
+    }
+
+    #weatherCards {
+        max-width: calc(100% - 20px);
     }
 }

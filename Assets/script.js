@@ -145,14 +145,6 @@ function loadSearchHistory() {
 }
 
 
-
-// Run function initially
-setFlexDirection();
-
-// Run function every time window resizes
-window.addEventListener('resize', setFlexDirection);
-
-
 //const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
 
 /* Open Weather API call: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}` */
