@@ -5,67 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Me-Weather</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Assets/style.css">
 </head>
 <body>
 
     <!--Full-width Header-->
-    <header class="bg-primary text-white text-center py-3">
+    <header class="bg-primary bg-gradient text-white text-center py-3">
         <h1>Weather Dashboard</h1>
     </header>
 
     <main class="container mt-5 d-flex">
-
+        <div class="row">
     <!-- Search Section -->
-    <aside class="mr-4">
-        <section>
-            <header>
-                <h2>Search for a City:</h2>
-            </header>
-            <article>
-                <div class="input-group mb-3">
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
-                    <div class="input-group-append">
-                        <button id="searchButton" class="btn btn-primary">Search</button>
-                    </div>
-                </div>
-                <hr>
-            </article>
-
+        <aside class="mr-4">
             <section>
                 <header>
-                    <h3>Search History</h3>
+                    <h2>Search for a City:</h2>
                 </header>
-                <nav>
-                    <ul id="searchHistory" class="list-group">
-                        <!-- History Items will display here -->
-                    </ul>
-                </nav>
+                <article>
+                    <div class="input-group mb-3">
+                        <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
+                        <div class="input-group-append">
+                            <button id="searchButton" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                    <hr>
+                </article>
+
+                <section>
+                    <header>
+                        <h3>Search History</h3>
+                    </header>
+                    <nav>
+                        <ul id="searchHistory" class="list-group">
+                            <!-- History Items will display here -->
+                        </ul>
+                    </nav>
+                </section>
             </section>
-        </section>
-    </aside>
+        </aside>
 
     <!-- Weather Display Section -->
-    <section class="mt-4">
-        <header>
-            <h3 id="currentCityAndDate">Weather Details</h3> 
-        </header>
-        <article id="weatherDetails" class="text-center">
-            <table id="currentWeatherTable"> 
-                <!-- Weather info will be inserted here by the script -->
-            </table>
-        </article>
-    </section>
+        <div clas="col-md-9">
+            <section class="mt-4 text-center">
+                <header>
+                    <h3 id="currentCityAndDate">Weather Details</h3> 
+                </header>
+                <article id="weatherDetails" class="text-center">
+                    <table id="currentWeatherTable"> 
+                        <!-- Weather info will be inserted here by the script -->
+                    </table>
+                </article>
 
-    <!-- 5-Day Forecast Section -->
-    <section class="mt-4">
-        <header>
-            <h3>5-Day Forecast</h3> 
-        </header>
-        <article id="weatherCards" class="d-flex flex-wrap justify-content-center">
-            <!-- 5-day forecast will be inserted here by the script -->
-        </article>
-    </section>
-
+            <!-- 5-Day Forecast Section -->
+                <article id="weatherCards" class="d-flex flex-wrap justify-content-center">
+                    <!-- 5-day forecast will be inserted here by the script -->
+                </article>
+            </section>
+        </div>    
+    </div>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
