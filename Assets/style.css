@@ -4,6 +4,7 @@
 
 body {
     background-color: #DCDCDC;
+    overflow-x: hidden;
 }
 
 .bg-gradient {
@@ -35,6 +36,9 @@ body {
 
 /* Media Query for larger screens */
 @media (min-width: 768px) {
+    #forecastCardsContainer {
+        flex-direction: row;
+    }
     .forecast-card {
         flex: none;
         width: calc(18% - 10px);
@@ -43,11 +47,11 @@ body {
 
 /* Media Query for smaller screens */
 @media (max-width: 767px) {
-    .forecast-card {
-        width: 100%;
-    }
     #forecastCardsContainer {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .forecast-card {
+        width: 100% !important;
     }
 }

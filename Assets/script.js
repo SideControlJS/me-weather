@@ -102,7 +102,7 @@ function display5DayForecast(forecastData) {
         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
 
         const card = `
-        <div class="card forecast-card m-2 mx-auto mb-4">
+        <div class="card forecast-card">
         <div class="card-body">
           <h5 class="card-title">${new Date(day.dt_txt).toLocaleDateString()}</h5>
           <img src="${iconUrl}" alt="weather-icon">
@@ -143,6 +143,14 @@ function loadSearchHistory() {
         ul.appendChild(li);
     }) 
 }
+
+
+
+// Run function initially
+setFlexDirection();
+
+// Run function every time window resizes
+window.addEventListener('resize', setFlexDirection);
 
 
 //const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
