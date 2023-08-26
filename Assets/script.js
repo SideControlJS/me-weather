@@ -28,6 +28,44 @@ function fetchCoordinates(city) {
         });
 }
 
+function fetchWeatherInformation(lat, lon, city) {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            displayCurrentWeather(data.list[0], city);
+            display5DayForecast(data.list.slice(1, 6));
+        });
+}
+
+function displayCurrentWeather(currentWeather, city) {
+    const temperature = currentWeather.main.temp;
+    const wind = currentWeather.wind.speed;
+    const humidity = currentWeather.main.humidity;
+    const iconCode = currentWeather.wetaher[0].icon;
+    const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+
+    document.getElementById("currentCityAndDate").innerText= `Weather Details for ${city} on ${new Date().toLocaleDateString()}`;
+    const tableHTML = `
+        <tr>
+            <td>Temerature</td>
+            <td>${temperature}°F</td>
+        </tr>
+        <tr>
+            <td>Wind</td>
+            <td>${wind} MPH</td>
+        </tr>
+        <tr>
+            <td>Humidity<.td>
+            <td>${humidity}%</td>
+        </tr>
+        <tr>
+            <td>Icon</td>
+            <td><img src="${iconUrl}" alt="Weather Icon"></td>
+        </tr> 
+    `;
+    document.getElementById("currentWeatherTable").innerHTML = tableHTML;
+}
+
 //const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
 
 /* Open Weather API call: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}` */
