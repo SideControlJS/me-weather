@@ -75,7 +75,21 @@ function display5DayForecast(forecastData) {
         const temperature = day.main.temp;
         const wind = day.wind.speed;
         const humidity = day.main.humidity;
-        const iconCode = day.weather[0].icon;
+
+        // logic to pick a (better) icon!
+        let iconCode = "default_icon_code";
+        day.weather.forEach(condition => {
+            // example condition checks 
+            if (condition.main === "Thunderstorms") {
+                iconCode = "11d";
+            } else if (condition.main === "Drizzle") {
+                iconCode = "09d";
+            } else {
+                iconCode = condition.icon;
+            }
+        });
+
+
         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
 
         const card = `
