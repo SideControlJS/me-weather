@@ -8,22 +8,38 @@
 </head>
 <body>
 
-<main class="container mt-5">
+    <!--Full-width Header-->
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main class="container mt-5 d-flex">
 
     <!-- Search Section -->
-    <section>
-        <header>
-            <h2>Search Weather</h2>
-        </header>
-        <article>
-            <div class="input-group mb-3">
-                <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
-                <div class="input-group-append">
-                    <button id="searchButton" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-        </article>
-    </section>
+        <aside class="mr-4">
+            <section>
+                <header>
+                    <h2>Search for a City:</h2>
+                </header>
+                <article>
+                    <div class="input-group mb-3">
+                        <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
+                        <div class="input-group-append">
+                            <button id="searchButton" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                    <hr>
+                </article>
+
+                <section>
+                    <header>
+                        <h3>Search History</h3>
+                    </header>
+                    <nav>
+                        <ul id="searchHistory" class=""></ul>
+                    </nav>
+                </section>
+            </section>
 
     <!-- Weather Display Section-->
     <section class="mt-4"></section>

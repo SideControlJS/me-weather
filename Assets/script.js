@@ -2,6 +2,7 @@
 When the page is loaded: 
     Load previously searched cities from local storage and display them on the screen
 */
+const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
 
 document.addEventListener("DOMContentLoaded", function(){
     //load previously searched cities when the page loads
@@ -9,18 +10,27 @@ document.addEventListener("DOMContentLoaded", function(){
     loadSearchedCities();
 
     //event listener for search button click
-    document.querySelector("searchButton").addEventListener("click", function() {
-        const cityName = document.querySelector("#cityInput").ariaValueMax.trim();
-        if (cityName) {
-            fetchCoordinates(cityName);
-        }
+    document.getElementById("searchButon").addEventListener("click", function() {
+        const city = document.getElementById("cityInput").value;
+        fetchCoordinates(city);
     });
-
-    //event listener for previously searched cities
-
-})
+});
 
 
+function fetchCoordinates(city) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const lat = data.coord.lat;
+            const lon = data.coord.lon;
+            fetchWeatherInformation(lat, lon, city);
+            addCityToSearchHistory(city);
+        });
+}
+
+//const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
+
+/* Open Weather API call: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}` */
 
 /*
 When the search button is clicked:
