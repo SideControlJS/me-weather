@@ -46,16 +46,18 @@
         </aside>
 
     <!-- Weather Display Section -->
-        <div class="col-md-9">
-            <section class="mt-4 text-center" id="weatherDetailsSection" style="display: none">
-                <div>
-                    <h3 id="currentCityAndDate"></h3> 
-                </div>
+    <div class="col-md-9">
+        <section class="mt-4 text-center" id="weatherDetailsSection" style="display: none">
+            
+            <!-- Wrap the title and the current weather details -->
+            <div class="weatherDetailsWrapper">
+                <h3 id="currentCityAndDate"></h3>
                 <article id="weatherDetails" class="text-center">
                     <table id="currentWeatherTable"> 
                         <!-- Weather info will be inserted here by the script -->
                     </table>
                 </article>
+            </div>
 
             <!-- 5-Day Forecast Section -->
                 <article id="weatherCards" class="d-flex flex-wrap justify-content-center">

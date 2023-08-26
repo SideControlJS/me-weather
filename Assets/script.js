@@ -102,7 +102,7 @@ function display5DayForecast(forecastData) {
         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
 
         const card = `
-        <div class="card forecast-card m-2 mx-auto mb-4" style="width: 18rem;">
+        <div class="card forecast-card m-2 mx-auto mb-4">
         <div class="card-body">
           <h5 class="card-title">${new Date(day.dt_txt).toLocaleDateString()}</h5>
           <img src="${iconUrl}" alt="weather-icon">

@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #DCDCDC;
 }
@@ -25,19 +29,25 @@ body {
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Media Query for larger screens */
 @media (min-width: 768px) {
     .forecast-card {
         flex: none;
-        width:clac(18% - 10px);
+        width: calc(18% - 10px);
     }
 }
 
 /* Media Query for smaller screens */
 @media (max-width: 767px) {
     .forecast-card {
-        width: calc(50% - 10px);
+        width: 100%;
+    }
+    #forecastCardsContainer {
+        flex-direction: column;
+        align-items: center;
     }
 }
