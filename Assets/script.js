@@ -41,7 +41,7 @@ function displayCurrentWeather(currentWeather, city) {
     const temperature = currentWeather.main.temp;
     const wind = currentWeather.wind.speed;
     const humidity = currentWeather.main.humidity;
-    const iconCode = currentWeather.wetaher[0].icon;
+    const iconCode = currentWeather.weather[0].icon;
     const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
 
     document.getElementById("currentCityAndDate").innerText= `Weather Details for ${city} on ${new Date().toLocaleDateString()}`;
@@ -65,6 +65,34 @@ function displayCurrentWeather(currentWeather, city) {
     `;
     document.getElementById("currentWeatherTable").innerHTML = tableHTML;
 }
+
+function display5DayForecast(forecastData) {
+    const weatherCardsContainer = document.getElementById("weatherCards");
+    weatherCardsContainer.innerHTML = "";
+
+    forecastData.forEach(day => {
+        const temperature = day.main.temp;
+        const wind = day.wind.speed;
+        const humidity = day.main.humidity;
+        const iconCode = day.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+
+        const card = `
+        <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${new Date(day.dt_txt).toLocaleDateString()}</h5>
+          <img src="${iconUrl}" alt="weather-icon">
+          <p class="card-text">Temperature: ${temperature}°F</p>
+          <p class="card-text">Wind: ${wind} MPH</p>
+          <p class="card-text">Humidity: ${humidity}%</p>
+        </div>
+      </div>
+        `;
+        weatherCardsContainer.innerHTML += card;
+    });
+}
+
+
 
 //const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
 
