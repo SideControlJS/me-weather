@@ -1,3 +1,7 @@
+body {
+    background-color: #DCDCDC;
+}
+
 .bg-gradient {
     background: linear-gradient(to bottom right, blue, darkblue);
 }
@@ -5,4 +9,12 @@
 .forecast-card {
     background-color: darkblue;
     color: white;
+    flex: 0 1 calc(20% - 10px); /* Forces the cards to take 20% of the container's width */
+    margin: 5px;
+}
+
+#weatherDetails {
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 20px;
 }
