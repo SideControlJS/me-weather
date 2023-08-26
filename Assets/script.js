@@ -7,10 +7,10 @@ const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
 document.addEventListener("DOMContentLoaded", function(){
     //load previously searched cities when the page loads
 
-    loadSearchedCities();
+    loadSearchHistory();
 
     //event listener for search button click
-    document.getElementById("searchButon").addEventListener("click", function() {
+    document.getElementById("searchButton").addEventListener("click", function() {
         const city = document.getElementById("cityInput").value;
         fetchCoordinates(city);
     });
@@ -25,7 +25,8 @@ function fetchCoordinates(city) {
             const lon = data.coord.lon;
             fetchWeatherInformation(lat, lon, city);
             addCityToSearchHistory(city);
-        });
+        })
+        .catch(error => console.error("There was a problem with the fetch operation:", error));
 }
 
 function fetchWeatherInformation(lat, lon, city) {
@@ -34,7 +35,8 @@ function fetchWeatherInformation(lat, lon, city) {
         .then(data => {
             displayCurrentWeather(data.list[0], city);
             display5DayForecast(data.list.slice(1, 6));
-        });
+        })
+        .catch(error => console.error("There was a problem with the fetch operation:", error));
 }
 
 function displayCurrentWeather(currentWeather, city) {
@@ -55,7 +57,7 @@ function displayCurrentWeather(currentWeather, city) {
             <td>${wind} MPH</td>
         </tr>
         <tr>
-            <td>Humidity<.td>
+            <td>Humidity</td>
             <td>${humidity}%</td>
         </tr>
         <tr>
@@ -92,6 +94,33 @@ function display5DayForecast(forecastData) {
     });
 }
 
+function addCityToSearchHistory(city) {
+    let history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
+    if (!history.includes(city)) {
+        if (history.length >= 10) {
+            history.shift();  
+        }
+        history.push(city);
+        localStorage.setItem("searchHistory", JSON.stringify(history));
+    }
+    loadSearchHistory();
+}
+
+function loadSearchHistory() {
+    let history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
+    const ul = document.getElementById("searchHistory");
+    ul.innerHTML = "";
+
+    history.forEach(city => {
+        const li = document.createElement("li");
+        li.className = "list-group-item list-group-item-action";
+        li.innerText = city;
+        li.addEventListener("click", function() {
+            fetchCoordinates(city);
+        });
+        ul.appendChild(li);
+    }) 
+}
 
 
 //const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";

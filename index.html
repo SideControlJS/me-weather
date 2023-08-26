@@ -16,51 +16,44 @@
     <main class="container mt-5 d-flex">
 
     <!-- Search Section -->
-        <aside class="mr-4">
+    <aside class="mr-4">
+        <section>
+            <header>
+                <h2>Search for a City:</h2>
+            </header>
+            <article>
+                <div class="input-group mb-3">
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
+                    <div class="input-group-append">
+                        <button id="searchButton" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+                <hr>
+            </article>
+
             <section>
                 <header>
-                    <h2>Search for a City:</h2>
+                    <h3>Search History</h3>
                 </header>
-                <article>
-                    <div class="input-group mb-3">
-                        <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
-                        <div class="input-group-append">
-                            <button id="searchButton" class="btn btn-primary">Search</button>
-                        </div>
-                    </div>
-                    <hr>
-                </article>
-
-                <section>
-                    <header>
-                        <h3>Search History</h3>
-                    </header>
-                    <nav>
-                        <ul id="searchHistory" class=""></ul>
-                    </nav>
-                </section>
+                <nav>
+                    <ul id="searchHistory" class="list-group">
+                        <!-- History Items will display here -->
+                    </ul>
+                </nav>
             </section>
+        </section>
+    </aside>
 
-    <!-- Weather Display Section-->
-    <section class="mt-4"></section>
-        <header>
-            <h3>Weather Details</h3>
-        </header>
-        <article id="weatherDetails">
-            <p><srong>Temperature:</srong> <span id="temperature">N/A</span>°F</p>
-        </article>
-    </section>
-
-    <!-- Search History Section-->
+    <!-- Weather Display Section -->
     <section class="mt-4">
         <header>
-            <h3>Search History</h3>
+            <h3 id="currentCityAndDate">Weather Details</h3> 
         </header>
-        <nav>
-            <ul id="searchHistory" class="list-group">
-                <!--History Items will display here-->
-            </ul>
-        </nav>
+        <article id="weatherDetails">
+            <table id="currentWeatherTable"> 
+                <!-- Weather info will be inserted here by the script -->
+            </table>
+        </article>
     </section>
 
 </main>
