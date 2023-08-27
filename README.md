@@ -9,7 +9,7 @@ The Weather Dashboard is an intuitive and user-friendly application designed to 
 1. City Search: Users can search for cities to view current weather conditions.
 2. Search History: Previously searched cities are stored in local storage and displayed under the search bar for easy access.
 3. Current Weather Details: Displays the current temperature, wind speed, and humidity levels, along with a weather icon representing the conditions.
-4. 5-Day Forecast: Presents a 5-day weather forecast, including the 
+4. 5-Day Forecast: Presents a 5-day weather forecast, including the temperature, wind speed, and humidity for each day.
 
 ## Link to Deployed Page
 
