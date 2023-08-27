@@ -16,6 +16,13 @@ body {
     background-color: darkblue;
     color: white;
     margin: 5px;
+    min-width: 150px;
+}
+
+#forecastCardsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 /*#currentWeatherTable {
@@ -38,6 +45,7 @@ body {
 @media (min-width: 768px) {
     #forecastCardsContainer {
         flex-direction: row;
+        justify-content: flex-start;
     }
     .forecast-card {
         flex: none;

@@ -34,7 +34,7 @@ function fetchWeatherInformation(lat, lon, city) {
         .then(response => response.json())
         .then(data => {
             displayCurrentWeather(data.list[0], city);
-            display5DayForecast(data.list.slice(1, 6));
+            display5DayForecast(data.list);
             document.getElementById("weatherDetailsSection").style.display = "block";
         })
         .catch(error => console.error("There was a problem with the fetch operation:", error));
@@ -71,49 +71,56 @@ function displayCurrentWeather(currentWeather, city) {
 function display5DayForecast(forecastData) {
     const weatherCardsContainer = document.getElementById("forecastCardsContainer");
     const fiveDayForecastTitle = document.getElementById("fiveDayForecastTitle");
-
     weatherCardsContainer.innerHTML = "";
 
-    if (forecastData.length > 0) {
+    // Create a Set to hold distinct dates.
+    const distinctDates = new Set();
+    
+    // Iterate over the forecast data to populate the Set with distinct dates.
+    forecastData.forEach(day => {
+        const dateTime = new Date(day.dt * 1000);  // Convert the UNIX timestamp to milliseconds
+        const formattedDate = dateTime.toLocaleDateString();
+        distinctDates.add(formattedDate);
+    });
+
+    if (distinctDates.size > 0) {
         fiveDayForecastTitle.style.display = "block";
     } else {
         fiveDayForecastTitle.style.display = "none";
     }
 
-    forecastData.forEach(day => {
+    let count = 0;
+    // Iterate over the unique dates.
+    for (const date of distinctDates) {
+        if (count >= 5) break;  // Stop once we've collected 5 days of forecast
+
+        // Find the first forecast data for each distinct date.
+        const day = forecastData.find(d => new Date(d.dt * 1000).toLocaleDateString() === date);
+    
+        if (!day) continue; 
+
         const temperature = day.main.temp;
         const wind = day.wind.speed;
         const humidity = day.main.humidity;
-
-        // logic to pick a (better) icon!
-        let iconCode = "default_icon_code";
-        day.weather.forEach(condition => {
-            // example condition checks 
-            if (condition.main === "Thunderstorms") {
-                iconCode = "11d";
-            } else if (condition.main === "Drizzle") {
-                iconCode = "09d";
-            } else {
-                iconCode = condition.icon;
-            }
-        });
-
-
+        const iconCode = day.weather[0].icon;
         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
 
         const card = `
-        <div class="card forecast-card">
-        <div class="card-body">
-          <h5 class="card-title">${new Date(day.dt_txt).toLocaleDateString()}</h5>
-          <img src="${iconUrl}" alt="weather-icon">
-          <p class="card-text">Temperature: ${temperature}°F</p>
-          <p class="card-text">Wind: ${wind} MPH</p>
-          <p class="card-text">Humidity: ${humidity}%</p>
-        </div>
-      </div>
+            <div class="card forecast-card">
+                <div class="card-body">
+                  <h5 class="card-title">${date}</h5>
+                  <img src="${iconUrl}" alt="weather-icon">
+                  <p class="card-text">Temperature: ${temperature}°F</p>
+                  <p class="card-text">Wind: ${wind} MPH</p>
+                  <p class="card-text">Humidity: ${humidity}%</p>
+                </div>
+            </div>
         `;
+
         weatherCardsContainer.innerHTML += card;
-    });
+        
+        count++;
+    }
 }
 
 function addCityToSearchHistory(city) {
