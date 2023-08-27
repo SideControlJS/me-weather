@@ -32,10 +32,11 @@ Screenshot of Mobile Friendly Functionality:
 I used this README template: 
 https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
-I read through these pages and videos to help me with this Challenge: 
-https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
-https://www.w3schools.com/js/js_api_intro.asp
-https://www.w3schools.com/js/js_api_geolocation.asp
+I read through these pages to help me with this Challenge: 
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction,
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries,
+https://www.w3schools.com/js/js_api_intro.asp,
+https://www.w3schools.com/js/js_api_geolocation.asp,
 https://www.w3schools.com/js/js_api_web_storage.asp
 
