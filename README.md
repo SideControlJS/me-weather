@@ -17,10 +17,11 @@ https://sidecontroljs.github.io/me-weather/
 
 ## Screenshots of Deployed Webpage
 
-![Screenshot 1](/Assets/Deployed_SS.png)
+### ![Screenshot 1](/Assets/Deployed_SS.png)
 
 
-Screenshot of Mobile Friendly Functionality:
+## Screenshot of Mobile Friendly Functionality:
+
 ![Screenshot 2](/Assets/mobile_SS.jpg)
 
 ## Local Repo Screenshot
