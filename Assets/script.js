@@ -151,11 +151,6 @@ function loadSearchHistory() {
     }) 
 }
 
-
-//const apiKey = "fac3ce4e16d62b97d0cda9c7fffe6a28";
-
-/* Open Weather API call: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}` */
-
 /*
 When the search button is clicked:
     Get the city name from the input box.

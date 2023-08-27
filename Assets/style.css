@@ -60,11 +60,8 @@ body {
         flex-direction: column !important;
         align-items: center !important;
     }
-    .weatherDetailsWrapper .forecast-card {
-        max-width: calc(100% - 20px);
-    }
-
-    #weatherCards {
-        max-width: calc(100% - 20px);
+    .forecast-card {
+        width: 100%; /* Make it occupy full width */
+        max-width: 100%; /* Ensure it doesn't exceed the container's width */
     }
 }
